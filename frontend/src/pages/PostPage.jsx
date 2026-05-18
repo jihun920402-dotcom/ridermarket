@@ -49,7 +49,7 @@ function PostPage() {
             const imageFormData = new FormData();
             imageFormData.append('file', image);
 
-            const uploadRes = await axios.post('http://localhost:8080/api/products/upload', imageFormData, {
+            const uploadRes = await axios.post('http://localhost:8081/api/products/upload', imageFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -77,7 +77,7 @@ function PostPage() {
             };
 
             // 서버 전송 (JSON 형식)
-            const finalRes = await axios.post('http://localhost:8080/api/products', productData, {
+            const finalRes = await axios.post('http://localhost:8081/api/products', productData, {
                 headers: { 'Content-Type': 'application/json' }
             });
 

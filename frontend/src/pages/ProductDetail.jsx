@@ -7,7 +7,7 @@ import {
     Edit3, Trash2
 } from 'lucide-react'
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "http://localhost:8081";
 const FALLBACK_IMAGE = "https://picsum.photos/600";
 
 function ProductDetail() {

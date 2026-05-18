@@ -32,7 +32,7 @@ function ChatPage() {
         // 기존 채팅 내역 로드 (백엔드 REST API 호출)
         const fetchChatHistory = async () => {
             try {
-                const res = await axios.get('http://localhost:8080/api/chat/public-room')
+                const res = await axios.get('http://localhost:8081/api/chat/public-room')
                 setMessages(res.data)
             } catch (err) {
                 console.error("채팅 내역 로딩 실패:", err)
@@ -41,7 +41,7 @@ function ChatPage() {
         fetchChatHistory()
 
         // 웹소켓 연결 설정
-        const socket = new SockJS('http://localhost:8080/ws-chat')
+        const socket = new SockJS('http://localhost:8081/ws-chat')
         stompClient.current = Stomp.over(socket)
 
         stompClient.current.connect({}, (frame) => {

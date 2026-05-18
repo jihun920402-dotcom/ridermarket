@@ -42,7 +42,7 @@ function MyPage() {
         const fetchMyData = async () => {
             try {
                 // 전체 상품 중 '주소'가 내 주소와 일치하는 것 필터링 (작성자 필드가 없을 경우 대비)
-                const res = await axios.get('http://localhost:8080/api/products')
+                const res = await axios.get('http://localhost:8081/api/products')
                 setMyProducts(res.data.filter(p => p.address === user.address))
                 setLikedProducts(res.data.slice(0, 2)) // 관심 목록 샘플
             } catch (err) {
@@ -55,7 +55,7 @@ function MyPage() {
     // 정보 수정 저장 함수
     const handleUpdate = async () => {
         try {
-            const res = await axios.patch(`http://localhost:8080/api/users/update/${user.id}`, editData)
+            const res = await axios.patch(`http://localhost:8081/api/users/update/${user.id}`, editData)
             const updatedUser = { ...user, ...res.data }
             
             // 상태 업데이트 및 로컬스토리지 동기화
@@ -176,7 +176,7 @@ function MyPage() {
                                 className="bg-white p-5 rounded-[2rem] border border-gray-100 flex gap-5 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all group"
                             >
                                 <div className="w-24 h-24 bg-gray-100 rounded-2xl overflow-hidden flex-none">
-                                    <img src={`http://localhost:8080${item.imageUrl}`} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="product" />
+                                    <img src={`http://localhost:8081${item.imageUrl}`} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="product" />
                                 </div>
                                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                                     <h4 className="font-bold text-gray-900 truncate mb-1">{item.title}</h4>

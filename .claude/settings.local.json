@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Tee-Object *)",
+      "PowerShell(npm *)",
+      "PowerShell(java *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(curl -s http://localhost:8081/api/products)"
+    ]
+  }
+}

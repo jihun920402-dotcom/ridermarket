@@ -35,7 +35,7 @@ function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/api/products')
+        const res = await axios.get('http://localhost:8081/api/products')
         setProducts(res.data)
       } catch (err) {
         console.error("매물 로딩 실패:", err)
@@ -202,7 +202,7 @@ function Home() {
                   <div className="aspect-[4/5] bg-gray-100 rounded-[2.5rem] overflow-hidden relative mb-6 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-3 transition-all duration-500">
                     <img
                       // Entity의 imageUrl 필드 사용
-                      src={product.imageUrl ? `http://localhost:8080${product.imageUrl}` : "https://placehold.co/400"}
+                      src={product.imageUrl ? `http://localhost:8081${product.imageUrl}` : "https://placehold.co/400"}
                       className={`w-full h-full object-cover transition duration-700 group-hover:scale-110 ${product.status === 'SOLD' ? 'grayscale opacity-40' : ''}`}
                       onError={(e) => { e.target.src = "https://placehold.co/400?text=No+Image" }}
                     />

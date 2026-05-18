@@ -49,7 +49,7 @@ function SignupPage() {
 
     try {
       // 주소 뒤에 직접 붙이는 방식보다 params를 사용하는 것이 더 안전합니다.
-      const res = await axios.get(`http://localhost:8080/api/users/check-email`, {
+      const res = await axios.get(`http://localhost:8081/api/users/check-email`, {
         params: { email: formData.email }
       });
 
@@ -79,7 +79,7 @@ function SignupPage() {
     try {
       // 가입 시에는 confirmPassword를 제외하고 전송
       const { confirmPassword, ...signupData } = formData
-      await axios.post('http://localhost:8080/api/users/signup', signupData)
+      await axios.post('http://localhost:8081/api/users/signup', signupData)
 
       alert('라이더 마켓의 가족이 되신 것을 환영합니다!')
       navigate('/login')

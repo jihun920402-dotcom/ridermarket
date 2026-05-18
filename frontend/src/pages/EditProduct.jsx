@@ -19,13 +19,13 @@ function EditProduct() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/api/products/${id}`);
+                const res = await axios.get(`http://localhost:8081/api/products/${id}`);
                 const data = res.data;
                 setTitle(data.title);
                 setCategory(data.category);
                 setPrice(data.price);
                 setDescription(data.description);
-                setPreview(`http://localhost:8080${data.imageUrl}`); // 기존 이미지 미리보기
+                setPreview(`http://localhost:8081${data.imageUrl}`); // 기존 이미지 미리보기
             } catch (err) {
                 console.error("데이터 로딩 실패:", err);
                 alert("게시글을 불러올 수 없습니다.");
@@ -60,7 +60,7 @@ function EditProduct() {
         }
 
         try {
-            await axios.put(`http://localhost:8080/api/products/${id}`, formData, {
+            await axios.put(`http://localhost:8081/api/products/${id}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             alert("수정이 완료되었습니다!");
